@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <title>XDC Forge</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="webxdc.js"></script>
+  <script src="vendor/jszip.min.js"></script>
+</head>
+<body>
+  <header class="bar">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">⚒</span>
+      <div>
+        <strong>XDC Forge</strong>
+        <small>WebxDC IDE for Vector</small>
+      </div>
+    </div>
+    <label class="field">
+      <span>Project</span>
+      <select id="project-select"></select>
+    </label>
+    <div class="actions">
+      <button type="button" id="btn-new" title="New project">New</button>
+      <button type="button" id="btn-import" title="Import an existing .xdc">Import .xdc</button>
+      <button type="button" id="btn-pack" class="primary" title="Zip and send to a Vector chat">Pack &amp; send</button>
+      <button type="button" id="btn-preview" title="Run in the preview panes">Preview</button>
+      <label class="peers">
+        Peers
+        <select id="peer-count">
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+        </select>
+      </label>
+      <button type="button" id="btn-docs" title="WebxDC API sheet">API</button>
+    </div>
+  </header>
+  <main class="workspace">
+    <aside class="files" id="files-pane">
+      <div class="pane-head">
+        <span>Files</span>
+        <div>
+          <button type="button" id="btn-add-file" title="Add file">+</button>
+          <button type="button" id="btn-add-asset" title="Import asset into project">Asset</button>
+        </div>
+      </div>
+      <ul id="file-list"></ul>
+      <p class="hint">Need <code>index.html</code>. Optional <code>manifest.toml</code>, <code>icon.png</code>.</p>
+    </aside>
+    <section class="editor-col">
+      <div class="tabs" id="tabs"></div>
+      <div class="editor-wrap">
+        <pre class="gutter" id="gutter" aria-hidden="true"></pre>
+        <textarea id="editor" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+      </div>
+    </section>
+    <section class="preview-col" id="preview-col">
+      <div class="pane-head">
+        <span>Preview</span>
+        <button type="button" id="btn-preview-stop">Stop</button>
+      </div>
+      <div class="peers-row" id="peers-row"></div>
+      <div class="log" id="preview-log"></div>
+    </section>
+  </main>
+  <aside class="docs hidden" id="docs">
+    <div class="pane-head">
+      <span>WebxDC API</span>
+      <button type="button" id="btn-docs-close">Close</button>
+    </div>
+    <div class="docs-body">
+      <p>Mini apps are a zip named <code>.xdc</code>. Host injects <code>webxdc.js</code> — do not pack it. No network. State moves through the chat.</p>
+      <pre>window.webxdc.selfAddr
+window.webxdc.selfName
+
+webxdc.sendUpdate({
+  payload: any,
+  info?: string,
+  summary?: string,
+  href?: string
+}, "description")
+
+webxdc.setUpdateListener(fn, 0)
+
+await webxdc.sendToChat({
+  text: "…",
+  file: { name: "app.xdc", blob }
+})
+
+await webxdc.importFiles({
+  extensions: [".xdc", ".png"],
+  mimeTypes: ["application/zip"],
+  multiple: false
+})
+
+// Vector: joinRealtimeChannel() for ephemeral P2P
+</pre>
+      <p>Container: zip must contain <code>index.html</code>. Optional <code>manifest.toml</code>:</p>
+      <pre>name = "My App"
+source_code_url = "https://…"</pre>
+    </div>
+  </aside>
+  <footer class="status" id="status">Ready</footer>
+  <dialog id="modal">
+    <form method="dialog" id="modal-form">
+      <h2 id="modal-title">New</h2>
+      <p id="modal-lead"></p>
+      <input id="modal-input" type="text"/>
+      <div class="modal-templates" id="modal-templates"></div>
+      <menu>
+        <button value="cancel" type="submit">Cancel</button>
+        <button value="ok" id="modal-ok" class="primary" type="submit">OK</button>
+      </menu>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
