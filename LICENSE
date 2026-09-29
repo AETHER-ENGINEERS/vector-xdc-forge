@@ -1,4 +1,3 @@
-https://github.com/AETHER-ENGINEERS/AETHER-ENGINEERS/blob/main/LICENSE
 # Our Models and Applications Repository for General Artificial Intelligence Research and AI Development (OMARG-AIR/AID) and AETHER-ENGINEERS Multiversal License Conditions
 
 
@@ -25,29 +24,3 @@ This project is open-source and is licensed under the Conditional OMARG and AETH
 10. **Scope of Rights**: This License applies in all domains, realms, timelines, planes, shards, continua, and universes now known or hereafter discovered.
 
 The latest version of this license is always the most applicable, make sure to check timestamps to ensure your projects are current.  Always reference the one with the most recent timestamp from either AETHER-ENGINEERS or DarkIlluminatus.
-
-The licensing below is only applicable to wedxdc elements, so long as it is fully in compliance with the above AETHER-ENGINEERS Licensing.
-
-GNU AFFERO GENERAL PUBLIC LICENSE
-Version 3, 19 November 2007
-
-Copyright (C) 2026 AETHER-ENGINEERS
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published
-by the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with this program. If not, see <https://www.gnu.org/licenses/>.
-
-The full AGPL-3.0 text is at https://www.gnu.org/licenses/agpl-3.0.html
-
-JSZip (src/vendor/jszip.min.js) is MIT-licensed by Stuart Knightley and
-contributors. It keeps the MIT license; this project's AGPL does not
-re-license JSZip.
