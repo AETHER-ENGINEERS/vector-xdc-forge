@@ -6,7 +6,7 @@ Edit HTML / JS / CSS / assets, preview one or two simulated peers, pack a `.xdc`
 
 **Status:** v0.1.0 Phase 0 — local projects, templates, multi-peer preview, pack / import.
 
-**License:** AGPL-3.0-or-later. JSZip remains MIT (see `LICENSE`).
+**License:** https://github.com/AETHER-ENGINEERS/AETHER-ENGINEERS/blob/main/LICENSE
 
 Repo: https://github.com/AETHER-ENGINEERS/vector-xdc-forge
 
